@@ -34,6 +34,7 @@ function block_logic(){
     
     if (contains_blocked == true || contains_blocked == 'true'){
         console.log("loading blocked page");
-        location.replace("/home/home/Desktop/Projects/contentWebBlocker/blocked_page.html");       
+        //location.replace("/home/home/Desktop/Projects/contentWebBlocker/blocked_page.html");       
+        location.replace("https://htmlpreview.github.io/?https://github.com/frroossst/webpage_content_blocker/blob/master/blocked_page.html")
     }
 }
