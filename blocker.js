@@ -7,23 +7,28 @@ window.addEventListener("load", function() {
 
 function block_logic(){
 
-    const blocked_keywords_promise = browser.storage.local.get(["keywords_stored"], function(result) {console.log(result)});
+    let data0 = "";
+    const blocked_keywords_promise = browser.storage.local.get(["keywords_stored"], function(result) {looper(JSON.stringify(result))});
     //blocked_keywords_promise.then((results) => {let k = Object.keys(results)})
-    console.log("looking for blocked keywords : ",blocked_keywords_promise);
+}
+
+function looper(res){
+    
+    const res_obj = JSON.parse(res);
+    res_arr = res_obj["keywords_stored"].split(",")
 
     let content_inner = document.documentElement.innerHTML;
     let content_outer = document.documentElement.outerHTML;
     
     let contains_blocked = false;
 
-    for (let i = 0; i < blocked_keywords.length; i ++){
-        console.log(i);
-        if (content_inner.includes(blocked_keywords[i])){
+    for (let i = 0; i < res_arr.length; i ++){
+        console.log(res_arr[i])
+        if (content_inner.includes(res_arr[i])){
             contains_blocked = true;
-            console.log(contains_blocked[i]);
             break;
         }
-        else if (content_outer.includes(blocked_keywords[i])){
+        else if (content_outer.includes(res_arr[i])){
             contains_blocked = true;
             break;
         }
