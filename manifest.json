@@ -15,5 +15,14 @@
         "gecko" : {
             "id" : "adhyanpatel@gmail.com"
         }
-    }
+    },
+    "icons" : {
+        "48" : "/icon.png"
+    },
+    "options_ui" : {
+        "page" : "options.html",
+        "browser_style" : true 
+    },
+    "permissions" : ["storage"]
+
 }

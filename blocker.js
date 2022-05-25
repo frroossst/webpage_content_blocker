@@ -7,9 +7,9 @@ window.addEventListener("load", function() {
 
 function block_logic(){
 
-    const blocked_keywords = ["BLOCKED","blocked"];
-
-    console.log("looking for blocked keywords : ",blocked_keywords);
+    const blocked_keywords_promise = browser.storage.local.get(["keywords_stored"], function(result) {console.log(result)});
+    //blocked_keywords_promise.then((results) => {let k = Object.keys(results)})
+    console.log("looking for blocked keywords : ",blocked_keywords_promise);
 
     let content_inner = document.documentElement.innerHTML;
     let content_outer = document.documentElement.outerHTML;
@@ -28,13 +28,9 @@ function block_logic(){
             break;
         }
     }
-    console.log("reached here");
-    
-    //console.log(contains_blocked);
-    
+
     if (contains_blocked == true || contains_blocked == 'true'){
         console.log("loading blocked page");
-        //location.replace("/home/home/Desktop/Projects/contentWebBlocker/blocked_page.html");       
         location.replace("https://htmlpreview.github.io/?https://github.com/frroossst/webpage_content_blocker/blob/master/blocked_page.html")
     }
 }
