@@ -2,16 +2,31 @@
 
 <html>
     <head>
-
+        <script>
+            function loadDef(defKeys){
+                document.getElementById("keywords_input").value = defKeys;
+                console.log("last def : ",defKeys)
+            }
+            const blocked_keywords_promise = browser.storage.local.get(["keywords_stored"], function(result) {loadDef(JSON.stringify(result))});
+        </script>
     </head>
     <body>
+        <center>
+        <p>
+            Enter in a list of keywords separated by a comma(,) like this :
+                boo,goo,poo,moo
+
+            The keywords are case insensitive meaning "BOO" and "Boo" is the same as "boo", This is just to ensure
+            stricter blocking.
+        </p>
         <form id="user-form">
-            <label>Blocked keywords</label>
-            <br>
+            <label><b>Blocked keywords</b></label>
+            <br><br>
             <input type="text" id="keywords_input">
-            <br>
+            <br><br>
             <button type="submit">Submit</button>
         </form>
+        </center>
         <script src="options.js"></script>
     </body>
 </html>
