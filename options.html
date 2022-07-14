@@ -18,11 +18,22 @@
 
             The keywords are case insensitive meaning "BOO" and "Boo" is the same as "boo", This is just to ensure
             stricter blocking.
+
+            Enter a list of top level domains to be blocked separated by a commas(,) like this:
+                facebook, google, youtube
+
+            "google" will block everything from "www.google.com" to "mail.google.com"
+
+            Think of it as, blocked keywords in the URL
         </p>
         <form id="user-form">
             <label><b>Blocked keywords</b></label>
+            <h3> Keywords to be blocked </h3>
             <br><br>
             <input type="text" id="keywords_input">
+            <br><br>
+            <h3> Websites to be blocked </h3>
+            <input type="text" id="websites_input">
             <br><br>
             <button type="submit">Submit</button>
         </form>
